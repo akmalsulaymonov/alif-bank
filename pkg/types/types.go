@@ -9,6 +9,16 @@ type Currency string
 // Category type: car, chemist, food
 type Category string
 
+// Payment status
+type Status string
+
+// Payment status variables
+const (
+	StatusOk         Status = "OK"
+	StatusFail       Status = "FAIL"
+	StatusInProgress Status = "INPROGRESS"
+)
+
 // Currency code
 const (
 	TJS Currency = "TJS"
@@ -37,4 +47,11 @@ type Payment struct {
 	ID       int
 	Amount   Money
 	Category Category
+	Status   Status
+}
+
+type PaymentSource struct {
+	Type    string // 'card'
+	Number  PAN    // номер вида '5058 xxxx xxxx 8888'
+	Balance Money  // баланс в дирамах
 }
